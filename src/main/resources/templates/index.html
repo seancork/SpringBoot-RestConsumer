@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert = "fragments.html :: head"></div>
+<body>
+	<div th:insert="fragments.html :: menu"></div>
+	<h1><span th:text="#{index.welcome}">Welcome to my API Consumer</span></h1>
+	<div th:insert="fragments.html :: footer"></div>
+
+</body>
+</html>

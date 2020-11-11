@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="fragments.html :: head"></div>
+
+
+<body>
+	<header>
+		<div th:insert="fragments.html :: menu"></div>
+		<h1><span th:text="#{bidcheck.heading}">County</span></h1>
+	</header>
+
+	
+		<form id="newBidByUserIdForm" method="post" th:action="@{/bidsbyuserid}" th:object="${bidsByUserIdForm}">
+		<label for="bid" th:text="#{bidcheck.userid}" ></label>
+			                                         <!-- The span is connected to the countyName field through th:errors. It appears if there was a binding problem and  -->
+			                                         <!--  displays the Size.countyName message from messages.properties --> 
+		<input type="text" maxlength="9" th:field="*{userId}"/><span th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" >Error</span> 
+		
+		<br /><br />
+
+		<input type="submit" th:value="#{bidcheck.findbids}"/>
+	</form>
+	
+	<footer th:insert="fragments.html :: footer"></footer>
+</body>
+</html>
+
